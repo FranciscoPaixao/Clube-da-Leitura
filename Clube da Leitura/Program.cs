@@ -4,8 +4,8 @@
     {
         static void Main(string[] args)
         {
-            MenuPrincipal menuPrincipal = new MenuPrincipal();
-            menuPrincipal.Menu();
+            MenuCli menuPrincipal = new MenuCli();
+            menuPrincipal.MenuPrincipal();
         }
     }
 }

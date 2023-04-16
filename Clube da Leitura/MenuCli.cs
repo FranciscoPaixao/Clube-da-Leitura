@@ -6,17 +6,17 @@ using Clube_da_Leitura.ModuloCaixa;
 
 namespace Clube_da_Leitura
 {
-    public class MenuPrincipal
+    public class MenuCli
     {
         RepositorioCaixa repositorioCaixa;
         CLICaixa cliCaixa;
-        public MenuPrincipal()
+        public MenuCli()
         {
             repositorioCaixa = new RepositorioCaixa();
             cliCaixa = new CLICaixa(repositorioCaixa);
             
         }
-        public void Menu()
+        public void MenuPrincipal()
         {
             Console.Clear();
             Console.WriteLine("Menu Principal");
