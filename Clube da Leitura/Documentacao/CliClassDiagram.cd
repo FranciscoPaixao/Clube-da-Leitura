@@ -1,17 +1,31 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="Clube_da_Leitura.ModuloRevista.CLIRevista">
-    <Position X="8.25" Y="2" Width="1.75" />
+    <Position X="7" Y="2" Width="1.75" />
     <TypeIdentifier>
       <HashCode>AgAAAIEAAAAAAAAAAAAAAAABAAAAAAAAEAAAAAABQAA=</HashCode>
       <FileName>ModuloRevista\CLIRevista.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Clube_da_Leitura.ModuloCaixa.CLICaixa">
-    <Position X="10.5" Y="2" Width="1.5" />
+    <Position X="5.25" Y="2" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAIAAAAAAAAAAEAQACAgAAAAAAAAAAAACAAAAAAA=</HashCode>
       <FileName>ModuloCaixa\CLICaixa.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Clube_da_Leitura.ModuloEmprestimo.CLIEmprestimo">
+    <Position X="9.25" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAABAAAIAAAAAAAAAAAACAiAAAAAAAAABAAA=</HashCode>
+      <FileName>ModuloEmprestimo\CLIEmprestimo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Clube_da_Leitura.ModuloAmigo.CLIAmigo">
+    <Position X="11.25" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAABAAAAAAAAAEAAAAAAAAAggQAAAAIAAAAAA=</HashCode>
+      <FileName>ModuloAmigo\CLIAmigo.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />
