@@ -4,7 +4,7 @@
     {
         static void Main(string[] args)
         {
-            MenuCli menuPrincipal = new MenuCli();
+            Clube_Da_Leitura menuPrincipal = new Clube_Da_Leitura();
             menuPrincipal.MenuPrincipal();
         }
     }

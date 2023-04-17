@@ -9,7 +9,7 @@ using Clube_da_Leitura.ModuloEmprestimo;
 
 namespace Clube_da_Leitura
 {
-    public class MenuCli
+    public class Clube_Da_Leitura
     {
         RepositorioCaixa repositorioCaixa;
         CLICaixa cliCaixa;
@@ -23,7 +23,7 @@ namespace Clube_da_Leitura
         RepositorioEmprestimo repositorioEmprestimo;
         CLIEmprestimo cliEmprestimo;
 
-        public MenuCli()
+        public Clube_Da_Leitura()
         {
             repositorioCaixa = new RepositorioCaixa();
             cliCaixa = new CLICaixa(repositorioCaixa);

@@ -68,12 +68,9 @@ namespace Clube_da_Leitura.ModuloEmprestimo
                 Console.WriteLine("Revista não encontrada");
                 return;
             }
-            Console.WriteLine("Digite a data de empréstimo:");
-            DateTime dataEmprestimo = Convert.ToDateTime(Console.ReadLine());
-            Console.WriteLine("Digite a data de devolução:");
-            DateTime dataDevolucao = Convert.ToDateTime(Console.ReadLine());
+            DateTime dataEmprestimo = DateTime.Now;
             Emprestimo emprestimo = new Emprestimo(dataEmprestimo, amigo.id, revista.codigoDeBarras);
-            emprestimo.dataDevolucao = dataDevolucao;
+            emprestimo.dataDevolucao = default(DateTime);
             repositorioEmprestimo.InserirEmprestimo(emprestimo);
             Console.WriteLine("Empréstimo registrado com sucesso");
         }
