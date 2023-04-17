@@ -70,7 +70,6 @@ namespace Clube_da_Leitura.ModuloEmprestimo
             }
             DateTime dataEmprestimo = DateTime.Now;
             Emprestimo emprestimo = new Emprestimo(dataEmprestimo, amigo.id, revista.codigoDeBarras);
-            emprestimo.dataDevolucao = default(DateTime);
             repositorioEmprestimo.InserirEmprestimo(emprestimo);
             Console.WriteLine("Empréstimo registrado com sucesso");
         }
