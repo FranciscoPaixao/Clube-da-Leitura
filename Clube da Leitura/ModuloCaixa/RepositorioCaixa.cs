@@ -7,10 +7,11 @@ namespace Clube_da_Leitura.ModuloCaixa
 {
     public class RepositorioCaixa
     {
-        private Dictionary<int, Caixa> caixas = new Dictionary<int, Caixa>();
+        private Dictionary<int, Caixa> caixas;
         private int contador;
         public RepositorioCaixa()
         {
+            caixas = new Dictionary<int, Caixa>();
             contador = 0;
         }
         public bool InserirCaixa(Caixa caixa)
@@ -18,9 +19,9 @@ namespace Clube_da_Leitura.ModuloCaixa
             if (ExisteCaixa(caixa.etiqueta)){
                 return false;
             }
-            contador++;
             caixa.id = contador;
             caixas.Add(contador, caixa);
+            contador++;
             return true;
         }
         public Caixa[] ObterCaixas()
@@ -76,7 +77,7 @@ namespace Clube_da_Leitura.ModuloCaixa
             }
             return false;
         }
-        private bool ExisteCaixa(String etiqueta)
+        public bool ExisteCaixa(String etiqueta)
         {
             foreach (var caixa in caixas)
             {

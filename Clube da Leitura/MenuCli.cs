@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Clube_da_Leitura.ModuloCaixa;
+using Clube_da_Leitura.ModuloRevista;
+using Clube_da_Leitura.ModuloAmigo;
+using Clube_da_Leitura.ModuloEmprestimo;
 
 namespace Clube_da_Leitura
 {
@@ -10,10 +13,31 @@ namespace Clube_da_Leitura
     {
         RepositorioCaixa repositorioCaixa;
         CLICaixa cliCaixa;
+
+        RepositorioRevista repositorioRevista;
+        CLIRevista cliRevista;
+
+        RepositorioAmigo repositorioAmigo;
+        CLIAmigo cliAmigo;
+
+        RepositorioEmprestimo repositorioEmprestimo;
+        CLIEmprestimo cliEmprestimo;
+
         public MenuCli()
         {
             repositorioCaixa = new RepositorioCaixa();
             cliCaixa = new CLICaixa(repositorioCaixa);
+
+            repositorioCaixa.InserirCaixa(new Caixa("Azul", "Cisco"));
+
+            repositorioRevista = new RepositorioRevista();
+            cliRevista = new CLIRevista(repositorioRevista, repositorioCaixa);
+
+            repositorioAmigo = new RepositorioAmigo();
+            cliAmigo = new CLIAmigo(repositorioAmigo);
+
+            repositorioEmprestimo = new RepositorioEmprestimo();
+            cliEmprestimo = new CLIEmprestimo(repositorioEmprestimo, repositorioRevista, repositorioAmigo);
             
         }
         public void MenuPrincipal()
@@ -23,7 +47,7 @@ namespace Clube_da_Leitura
             Console.WriteLine("Opções disponíveis: ");
             Console.WriteLine("1 - Menu Caixa");
             Console.WriteLine("2 - Menu Revista");
-            Console.WriteLine("3 - Menu Amiguinho");
+            Console.WriteLine("3 - Menu Amigo");
             Console.WriteLine("4 - Menu Emprestimo");
             Console.WriteLine("5 - Sair");
             Console.WriteLine("Digite a opção desejada: ");
@@ -34,13 +58,13 @@ namespace Clube_da_Leitura
                     cliCaixa.MenuCaixa();
                     break;
                 case 2:
-                    
+                    cliRevista.MenuRevista();
                     break;
                 case 3:
-                    
+                    cliAmigo.MenuAmigo();
                     break;
                 case 4:
-                    
+                    cliEmprestimo.MenuEmprestimo();
                     break;
                 case 5:
                     break;
@@ -48,6 +72,7 @@ namespace Clube_da_Leitura
                     Console.WriteLine("Opção inválida");
                     break;
             }
+            MenuPrincipal();
         }
     }
 }

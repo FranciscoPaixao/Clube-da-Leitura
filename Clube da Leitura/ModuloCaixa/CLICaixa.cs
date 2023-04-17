@@ -36,7 +36,7 @@ namespace Clube_da_Leitura.ModuloCaixa
                     ExcluirCaixa();
                     break;
                 case 4:
-                    VisualizarCaixas();
+                    VisualizarCaixas("Caixas cadastradas: ");
                     break;
                 case 5:
                     break;
@@ -48,6 +48,7 @@ namespace Clube_da_Leitura.ModuloCaixa
         public void InserirCaixa()
         {
             Console.Clear();
+            
             Console.WriteLine("Inserir Caixa");
             Console.WriteLine("Digite a cor da caixa: ");
             string cor = Console.ReadLine();
@@ -67,22 +68,22 @@ namespace Clube_da_Leitura.ModuloCaixa
         }
         public bool EditarCaixa()
         {
-            Caixa caixaEditavel;
+            Caixa caixa;
             Console.Clear();
-            Console.WriteLine("Editar Caixa");
+            VisualizarCaixas("Caixas disponíveis para edição: ");
             Console.WriteLine("Digite o id ou o nome na etiqueta da caixa: ");
             string idOuEtiqueta = Console.ReadLine();
             bool idValido = int.TryParse(idOuEtiqueta, out int id);
             if (idValido)
             {
-                caixaEditavel = repositorioCaixa.ObterCaixa(id);
+                caixa = repositorioCaixa.ObterCaixa(id);
             }
             else
             {
-                caixaEditavel = repositorioCaixa.ObterCaixa(idOuEtiqueta);
+                caixa = repositorioCaixa.ObterCaixa(idOuEtiqueta);
             }
 
-            if (caixaEditavel == null)
+            if (caixa == null)
             {
                 Console.WriteLine("Caixa não encontrada");
                 return false;
@@ -93,10 +94,10 @@ namespace Clube_da_Leitura.ModuloCaixa
             Console.WriteLine("Digite a nova etiqueta da caixa: ");
             string etiqueta = Console.ReadLine();
 
-            caixaEditavel.cor = cor;
-            caixaEditavel.etiqueta = etiqueta;
+            caixa.cor = cor;
+            caixa.etiqueta = etiqueta;
 
-            if (repositorioCaixa.EditarCaixa(caixaEditavel.id, caixaEditavel))
+            if (repositorioCaixa.EditarCaixa(caixa.id, caixa))
             {
                 Console.WriteLine("Caixa editada com sucesso");
             }
@@ -109,8 +110,8 @@ namespace Clube_da_Leitura.ModuloCaixa
         public void ExcluirCaixa()
         {
             Console.Clear();
-            Console.WriteLine("Excluir Caixa");
-            Console.WriteLine("Digite o id ou o nome na etiqueta da caixa: ");
+            VisualizarCaixas("Caixas disponíveis para exclusão: ");
+            Console.WriteLine("Digite o id ou o nome na etiqueta da caixa que deseja excluir: ");
             string idOuEtiqueta = Console.ReadLine();
             bool idValido = int.TryParse(idOuEtiqueta, out int id);
             if (idValido)
@@ -138,10 +139,10 @@ namespace Clube_da_Leitura.ModuloCaixa
             Console.ReadLine();
             MenuCaixa();
         }
-        public void VisualizarCaixas()
+        public void VisualizarCaixas(String texto)
         {
             Console.Clear();
-            Console.WriteLine("Visualizar Caixas");
+            Console.WriteLine(texto);
             Caixa[] caixas = repositorioCaixa.ObterCaixas();
             if (caixas.Length == 0)
             {
