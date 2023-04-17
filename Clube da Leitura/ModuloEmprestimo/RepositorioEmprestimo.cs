@@ -23,11 +23,8 @@ namespace Clube_da_Leitura.ModuloEmprestimo
         }
         public Emprestimo[] ObterEmprestimos()
         {
-            Emprestimo[] emprestimos = new Emprestimo[contador];
-            for (int i = 0; i < contador; i++)
-            {
-                emprestimos[i] = this.emprestimos[i + 1];
-            }
+            Emprestimo[] emprestimos = new Emprestimo[this.emprestimos.Count];
+            this.emprestimos.Values.CopyTo(emprestimos, 0);
             return emprestimos;
         }
         public Emprestimo ObterEmprestimo(int id)
@@ -57,7 +54,7 @@ namespace Clube_da_Leitura.ModuloEmprestimo
             {
                 return false;
             }
-            return emprestimos[id].dataDevolucao == null;
+            return emprestimos[id].dataDevolucao == default(DateTime);
         }
     }
 }

@@ -40,6 +40,7 @@ namespace Clube_da_Leitura.ModuloRevista
                     break;
                 case 4:
                     VisualizarRevistas("Revistas cadastradas: ");
+                    Console.ReadLine();
                     break;
                 case 5:
                     break;
@@ -143,16 +144,18 @@ namespace Clube_da_Leitura.ModuloRevista
             Console.Clear();
             Console.WriteLine(mensagem);
             Revista[] revistas = repositorioRevista.ObterTodasRevistas();
+            Console.WriteLine("Titulo\tAno\tCódigo de barras\tNome na etiqueta da caixa\tCor da caixa");
             for (int i = 0; i < revistas.Length; i++)
             {
+                Caixa caixa = repositorioCaixa.ObterCaixa(revistas[i].idCaixa);
                 Console.WriteLine("--------------------");
                 Console.WriteLine("Título: " + revistas[i].titulo);
                 Console.WriteLine("Ano: " + revistas[i].ano);
                 Console.WriteLine("Código de barras: " + revistas[i].codigoDeBarras);
-                Console.WriteLine("Id da caixa: " + revistas[i].idCaixa);
+                Console.WriteLine("Nome na etiqueta da caixa: " + caixa.etiqueta);
+                Console.WriteLine("Cor da caixa: " + caixa.cor);
                 Console.WriteLine();
             }
-            Console.ReadLine();
         }
     }
 }

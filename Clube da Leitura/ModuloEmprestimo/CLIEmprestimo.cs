@@ -35,6 +35,7 @@ namespace Clube_da_Leitura.ModuloEmprestimo
                     break;
                 case 2:
                     VisualizarEmprestimos("Emprestimos registrados:",null);
+                    Console.ReadLine();
                     break;
                 case 3:
                     DevolverRevista();
@@ -95,10 +96,11 @@ namespace Clube_da_Leitura.ModuloEmprestimo
         public void VisualizarEmprestimos(string mensagem, String status){
             Console.Clear();
             Console.WriteLine(mensagem);
+            Console.WriteLine("id - Amigo - Revista - Data de empréstimo - Data de devolução");
             Emprestimo[] emprestimos = repositorioEmprestimo.ObterEmprestimos();
             foreach (Emprestimo emprestimo in emprestimos)
             {
-                if(status == "Em andamento" && emprestimo.dataDevolucao != null){
+                if(status == "Em andamento" && emprestimo.dataDevolucao != default(DateTime)){
                     continue;
                 }
                 Console.WriteLine("--------------------");
@@ -108,7 +110,7 @@ namespace Clube_da_Leitura.ModuloEmprestimo
                 Console.WriteLine("Amigo: " + amigo.nome);
                 Console.WriteLine("Revista: " + revista.titulo);
                 Console.WriteLine("Data de empréstimo: " + emprestimo.dataEmprestimo);
-                if(emprestimo.dataDevolucao != null){
+                if(emprestimo.dataDevolucao != default(DateTime)){
                     Console.WriteLine("Data de devolução: " + emprestimo.dataDevolucao);
                 }
                 Console.WriteLine();

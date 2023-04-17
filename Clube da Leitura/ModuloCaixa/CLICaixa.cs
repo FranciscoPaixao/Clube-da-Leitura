@@ -37,6 +37,7 @@ namespace Clube_da_Leitura.ModuloCaixa
                     break;
                 case 4:
                     VisualizarCaixas("Caixas cadastradas: ");
+                    Console.ReadLine();
                     break;
                 case 5:
                     break;
@@ -44,11 +45,12 @@ namespace Clube_da_Leitura.ModuloCaixa
                     Console.WriteLine("Opção inválida");
                     break;
             }
+            MenuCaixa();
         }
         public void InserirCaixa()
         {
             Console.Clear();
-            
+
             Console.WriteLine("Inserir Caixa");
             Console.WriteLine("Digite a cor da caixa: ");
             string cor = Console.ReadLine();
@@ -64,7 +66,6 @@ namespace Clube_da_Leitura.ModuloCaixa
                 Console.WriteLine("Erro ao inserir caixa");
             }
             Console.ReadLine();
-            MenuCaixa();
         }
         public bool EditarCaixa()
         {
@@ -137,12 +138,12 @@ namespace Clube_da_Leitura.ModuloCaixa
                 }
             }
             Console.ReadLine();
-            MenuCaixa();
         }
         public void VisualizarCaixas(String texto)
         {
             Console.Clear();
             Console.WriteLine(texto);
+            Console.WriteLine("Id\t|Cor\t |Etiqueta");
             Caixa[] caixas = repositorioCaixa.ObterCaixas();
             if (caixas.Length == 0)
             {
@@ -155,8 +156,6 @@ namespace Clube_da_Leitura.ModuloCaixa
                     Console.WriteLine($"Id: {caixa.id} | Cor: {caixa.cor} | Etiqueta: {caixa.etiqueta}");
                 }
             }
-            Console.ReadLine();
-            MenuCaixa();
         }
     }
 }

@@ -17,6 +17,7 @@ namespace Clube_da_Leitura.ModuloEmprestimo
             this.dataEmprestimo = dataEmprestimo;
             this.idAmigo = idAmigo;
             this.codigoDeBarras = codigoDeBarras;
+            dataDevolucao = default(DateTime);
         }
     }
 }

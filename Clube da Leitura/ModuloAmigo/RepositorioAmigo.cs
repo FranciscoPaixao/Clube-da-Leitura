@@ -27,16 +27,17 @@ namespace Clube_da_Leitura.ModuloAmigo
         }
         public Amigo[] ObterAmigos()
         {
-            Amigo[] amigos = new Amigo[contador];
-            for (int i = 0; i < contador; i++)
-            {
-                amigos[i] = this.amigos[i + 1];
-            }
+            Amigo[] amigos = new Amigo[this.amigos.Count];
+            this.amigos.Values.CopyTo(amigos, 0);
             return amigos;
         }
         public Amigo ObterAmigo(int id)
         {
             if (id > contador)
+            {
+                return null;
+            }
+            if(!ExisteAmigo(id))
             {
                 return null;
             }

@@ -37,6 +37,7 @@ namespace Clube_da_Leitura.ModuloAmigo
                     break;
                 case 4:
                     VisualizarAmigos("Amigos cadastrados: ");
+                    Console.ReadLine();
                     break;
                 case 5:
                     break;
@@ -131,6 +132,7 @@ namespace Clube_da_Leitura.ModuloAmigo
         {
             Console.Clear();
             Console.WriteLine(mensagem);
+            Console.WriteLine("Id - Nome - Nome do Responsável - Telefone - Endereço");
             Amigo[] amigos = repositorioAmigo.ObterAmigos();
             foreach (Amigo amigo in amigos)
             {

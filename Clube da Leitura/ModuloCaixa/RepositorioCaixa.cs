@@ -24,15 +24,12 @@ namespace Clube_da_Leitura.ModuloCaixa
             contador++;
             return true;
         }
-        public Caixa[] ObterCaixas()
-        {
-            Caixa[] caixas = new Caixa[contador];
-            for (int i = 0; i < contador; i++)
-            {
-                caixas[i] = this.caixas[i + 1];
-            }
+        public Caixa[] ObterCaixas(){
+            Caixa[] caixas = new Caixa[this.caixas.Count];
+            this.caixas.Values.CopyTo(caixas, 0);
             return caixas;
         }
+        
         public Caixa ObterCaixa(int id)
         {
             if (id > contador){

@@ -8,11 +8,9 @@ namespace Clube_da_Leitura.ModuloRevista
     public class RepositorioRevista
     {
         private Dictionary<string, Revista> revistas;
-        private int contador;
         public RepositorioRevista()
         {
             revistas = new Dictionary<string, Revista>();
-            contador = 0;
         }
         public bool InserirRevista(Revista revista)
         {
